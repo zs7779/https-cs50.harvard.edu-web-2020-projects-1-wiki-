@@ -1,0 +1,26 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    {{ title }}
+{% endblock %}
+
+{% block body %}
+    <div id="id_article_body">
+        {% if article %}
+            [<a href="#" class="class_new_article">Edit</a>]
+            {{ article|safe }}
+        {% else %}
+        <h1>{{ title }}</h1>
+        <b>Wiki does not have an article with this exact name.</b> Please search for "<i>{{ title }}</i>" in Wiki to
+        check for alternative titles.
+
+        <ul>
+            <li>You can <a href="#" class="class_new_article">create this article</a>.</li>
+            <li><a href="#" class="class_search_article">Search for "<i>{{ title }}</i>"</a> in existing articles.</li>
+        </ul>
+        {% endif %}
+    </div>
+    <div id="id_new_article_form" style="display: none">
+        {% include "encyclopedia/article_form.html" %}
+    </div>
+{% endblock %}

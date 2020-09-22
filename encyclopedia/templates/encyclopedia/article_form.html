@@ -1,0 +1,5 @@
+<form action="{% url 'encyclopedia:new' %}" method="post">
+    {% csrf_token %}
+    {{ article_form.as_p }}
+    <button type="submit" class="btn btn-primary mb-2">Save</button>
+</form>
